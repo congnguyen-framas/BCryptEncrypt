@@ -5,24 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BCrypt"
         mc:Ignorable="d"
-        Title="BCrypt" Height="420" Width="1374">
+        Title="BCrypt" Height="540" Width="1920">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical">
-            <TextBox x:Name="txtPass" Text="Pass" FontSize="20"/>
-            <TextBox x:Name="txtPassHash" Text="Pass" FontSize="20"/>
-            <Button x:Name="btnEncrypt" Content="HashPassword" FontSize="20" Click="btnEncrypt_Click"></Button>
+        <Border BorderThickness="2" BorderBrush="Black" Padding="5" Margin="5">
+            <Grid ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-        </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Content" FontSize="30" VerticalAlignment="Center" Margin="5"></Label>
+                    <TextBox x:Name="txtContent" Text="" FontSize="30" VerticalAlignment="Center" 
+                             Width="1750" Height="100" TextWrapping="WrapWithOverflow" Margin="5"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Label Content="ContentHash" FontSize="30" VerticalAlignment="Center" Margin="5"></Label>
+                    <TextBox x:Name="txtContentHash" Text="" FontSize="20"
+                             Width="1685" Height="100" TextWrapping="WrapWithOverflow" Margin="5"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-        <StackPanel Grid.Row="1" Orientation="Vertical">
-            <TextBlock x:Name="labResult"/>
-            <Button x:Name="btnDecrypt" Content="Verify" FontSize="20" Click="btnDecrypt_Click"></Button>
 
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnEncrypt" Content="HashPassword" FontSize="30" 
+                            Click="btnEncrypt_Click" Width="500" Margin="5" Background="LightGreen" RenderTransformOrigin="-0.415,2.623"/>
+            <Button x:Name="btnVerify" Content="Verify" FontSize="30" 
+                           Width="500" Margin="5" Click="btnVerify_Click" Background="YellowGreen"/>
+            <Button x:Name="btnCopyEncrypt" Content="Copy" FontSize="30" 
+                           Width="500" Margin="5" Click="btnCopyEncrypt_Click" Background="Gold"/>
         </StackPanel>
     </Grid>
 </Window>

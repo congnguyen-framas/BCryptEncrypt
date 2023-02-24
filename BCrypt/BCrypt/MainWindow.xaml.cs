@@ -24,18 +24,21 @@ namespace BCrypt
         public MainWindow()
         {
             InitializeComponent();
-
-
         }
 
         private void btnEncrypt_Click(object sender, RoutedEventArgs e)
         {
-            txtPassHash.Text = BC.HashPassword(txtPass.Text,12);
+            txtContentHash.Text = BC.HashPassword(txtContent.Text,12);
         }
 
-        private void btnDecrypt_Click(object sender, RoutedEventArgs e)
+        private void btnVerify_Click(object sender, RoutedEventArgs e)
         {
-            labResult.Text=($"Result check pass: { BC.Verify(txtPass.Text, txtPassHash.Text)}");
+            MessageBox.Show($"Result check pass: { BC.Verify(txtContent.Text, txtContentHash.Text)}","Verify resut",MessageBoxButton.OK,MessageBoxImage.Information);
+        }
+
+        private void btnCopyEncrypt_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Clipboard.SetText(txtContentHash.Text);
         }
     }
 }
